@@ -1,13 +1,18 @@
 import { useState } from "react";
 
-function ListGroup() {
-  let items = ["Action", " Adventure", "RPG", "Strategy", "Shooter"];
+//you can prefix it with details like ListGroupProps
+interface Props {
+  items: string[];
+  heading: string;
+}
+
+function ListGroup({ items, heading }: Props) {
   //Hook
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
     <>
-      <h1>Game Genres List</h1>
+      <h1>{heading}</h1>
       {items.length === 0 && <p>No items Found</p>}
       <ul className="list-group">
         {items.map((item, index) => (
